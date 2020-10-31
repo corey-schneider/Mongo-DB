@@ -40,13 +40,13 @@ app.post('/budget', (req, res) => {
         useNewUrlParser: true,
         useUnifiedTopology: true
     }).then(() => {
-        var budgetEntity = {
+        var budgetData = {
             title: req.body.title,
             budget: req.body.budget,
             backgroundColor: req.body.backgroundColor
         };
 
-        budgetModel.insertMany(budgetEntity)
+        budgetModel.insertMany(budgetData)
         .then((data) => {
             res.json(data);
             mongoose.connection.close();
